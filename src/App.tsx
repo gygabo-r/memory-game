@@ -1,16 +1,28 @@
-import { useState } from 'react'
 import './App.css'
+import {useMemo} from 'react';
+import {pickPictures} from './pickPictures.ts';
+import {randomizePictures} from './randomizePictures.ts';
+import {FlipCard} from './FlipCard.tsx';
 
 function App() {
-  const [count, setCount] = useState(0)
 
-  return (
-    <>
-      <div className="grid-container">
+    const pickedCards = useMemo(() => {
+        const picked = pickPictures(8);
+        return randomizePictures(picked);
+    }, []);
 
-      </div>
-    </>
-  )
+    return (
+        <>
+            <div className="grid-container">
+                {
+                    pickedCards.map((pc, index) => {
+                        const key = `${pc}-${index}`;
+                        return <FlipCard key={key} icon={pc}/>
+                    })
+                }
+            </div>
+        </>
+    )
 }
 
 export default App

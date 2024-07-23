@@ -49,4 +49,5 @@
   display: grid;
   width: fit-content;
   gap: 1em;
+  grid-template-columns: auto auto auto auto;
 }

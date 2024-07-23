@@ -25,3 +25,5 @@ export const picture_codes = {
     "swan": "&#129442;",
     "sloth": "&#129445;"
 };
+
+export type PictureKey = keyof typeof picture_codes;
