@@ -1,6 +1,6 @@
 import {useState} from 'react';
 
-export const useGameLogic = () => {
+export const useGameLogic = (numberOfAllCards: number) => {
     const [openCards, setOpenCards] = useState<string[]>([]);
     const [matchedCards, setMatchedCards] = useState(new Set<string>());
 
@@ -33,6 +33,11 @@ export const useGameLogic = () => {
     return {
         openCards,
         matchedCards,
-        handleClick
+        handleClick,
+        isGameWon: matchedCards.size === numberOfAllCards,
+        reset: () => {
+            setOpenCards([]);
+            setMatchedCards(new Set<string>());
+        }
     }
 }
