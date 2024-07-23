@@ -1,0 +1,52 @@
+:root{
+  --button-color: 0, 255, 0;
+  --length: min(22vw, 22vh);
+}
+
+.card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(var(--button-color), 0.5);
+  min-width: var(--length);
+  min-height: var(--length);
+  cursor: pointer;
+}
+
+.card:hover{
+  background-color: rgba(var(--button-color), 1);
+}
+
+.flip-card {
+  background-color: transparent;
+  width: var(--length);
+  height: var(--length);
+  font-size: min(16vh, 16vw);
+}
+
+.flip-card-inner {
+  position: relative;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.flip-card-flipped {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.flip-card-back {
+  transform: rotateY(180deg);
+}
+
+.grid-container {
+  display: grid;
+  width: fit-content;
+  gap: 1em;
+}
